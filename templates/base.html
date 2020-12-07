@@ -40,7 +40,7 @@
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
                 <div id="logo" class="fl_left">
-                    <h1><a href="index.html">Geodarn</a></h1>
+                    <h1><a href="/">Geodarn</a></h1>
                 </div>
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
@@ -51,7 +51,7 @@
                         {% if not user.is_authenticated %}
                         <li class="{% if nav == 'login' %}active{% endif %}"><a href="{% url 'login' %}">Login</a></li>
                         {% else %}
-                        <li class="{% if nav == 'profile' %}active{% endif %}"><a href="{% url 'profile' %}">User</a></li>
+                        <li class="{% if nav == 'profile' %}active{% endif %}"><a href="{% url 'guest' %}">User</a></li>
                         {% endif %}
                     </ul>
                 </nav>
@@ -65,7 +65,7 @@
                             <p>Ullamcorper</p>
                             <h3 class="heading">Maecenas nulla tellus</h3>
                             <p>Vitae lobortis id ut mi in molestie in</p>
-                            <footer><a class="btn" href="#">Venenatis curabitur</a></footer>
+                            <footer><a class="btn" href="{% url 'booking' %}">Venenatis curabitur</a></footer>
                         </article>
                     </li>
                     <li>
@@ -73,7 +73,7 @@
                             <p>Scelerisque</p>
                             <h3 class="heading">Dolor rhoncus nullam</h3>
                             <p>Augue non id quam sit amet urna lobortis</p>
-                            <footer><a class="btn inverse" href="#">Interdum lectus</a></footer>
+                            <footer><a class="btn inverse" href="{% url 'booking' %}">Interdum lectus</a></footer>
                         </article>
                     </li>
                     <li>
@@ -81,7 +81,7 @@
                             <p>Vestibulum</p>
                             <h3 class="heading">Justo erat venenatis</h3>
                             <p>Tempor sit amet ac nibh nullam mattis</p>
-                            <footer><a class="btn" href="#">Bibendum magna</a></footer>
+                            <footer><a class="btn" href="{% url 'booking' %}">Bibendum magna</a></footer>
                         </article>
                     </li>
                 </ul>

@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
+from profiles.models import MyBooking
+
 User = get_user_model()
 
 
@@ -34,8 +36,12 @@ class ProfilesUserAdmin(UserAdmin):
     )
 
 
-admin.site.register(User, ProfilesUserAdmin)
+class MyBookingAdmin(admin.ModelAdmin):
+    list_display = ('room', 'check_in', 'check_out', 'price', 'amount')
 
+
+admin.site.register(User, ProfilesUserAdmin)
+admin.site.register(MyBooking, MyBookingAdmin)
 
 
 

@@ -1,25 +1,55 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    Room page
-{% endblock %}
+{% block title %}booking{% endblock %}
 
 {% block content %}
-<div class="home container">
-        <h1 class="module-title center">
-            Accommodation
-        </h1>
-        <div class="module-content">
-            <div class='single-room-detail'>
-                <div style="text-align: justify;">
-                    <span style="font-size:20px;"><span style="font-family:times new roman,times,serif;">The Oriental Jade Hotel offers 120 premium guest rooms and suites with stunning views of Hoan Kiem Lake, Hanoi Cathedral and Hanoi Old Quarter. Designed to be a peaceful haven to unwind after spending a long day discovering Hanoi, the hotel rooms and suites are ideal resting places for guests to wake up with a welcoming view of the bustling city from above.<br />
-                            &nbsp;<br />
-                            Bright and spacious, all our rooms feature a mix of classic d&eacute;cor and modern furnishings to maximize guests&rsquo; comfort. All rooms are equipped with complimentary WIFI, a flat-screen satellite TV, an alarm clock, 220V electric adapters, an individual safe, a minibar, an air-conditioner with individually controlled thermostats and a hair dryer. Room service is available daily until 10 PM.</span></span><br />
-                    &nbsp;</div>
-            </div>
-        </div>
+    <section>
+        <div class="container-fluid px-5 ">
+            <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-center py-5 bg-light">
 
-        {% for item in rooms_list %}
+                <div class="col-lg-2">
+                    <label for="">Check in</label>
+                    <input class="form-control mr-sm-2" type="date" placeholder="Check in" name="cin"  aria-label="Search" required="True">
+                </div>
+                <div class="col-lg-2">
+                    <label for="">Check Out</label>
+                    <input class="form-control mr-sm-2" type="date" placeholder="Check out" name="cout"  aria-label="Search" required="True">
+                </div>
+                <div class="col-lg-2">
+                    <label for="">Person</label>
+{#                    <input class="form-control mr-sm-2" type="" placeholder="Person" name="capacity" aria-label="Search" required="True">#}
+                    <select class="form-control mr-sm-2" name="capacity" required="True">
+                        <option value="1">Single</option>
+                        <option value="2">Double</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+
+                    <input type="submit" value="Check Availabilty" class="form-control mr-sm-2 btn btn-primary my-4" style="position: relative;top: 7px;">
+                </div>
+                {% if rooms %}
+                <p class="text-center text-success">Rooms Available</p>
+                {% endif %}
+
+            </div>
+            </form>
+        </div>
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+                <div class="text-center alert alert-{{ message.tags }}">
+                    {{ message|safe }}
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+    <section>
+        <div class="home container">
+        {% for item in room_list %}
         <div class='row mx-0 location-means'>
             <div class='col-12 col-md-6 order-md-1 px-0 image'><a class='video-image' style="background-image:url('{{ item.picture.url }}');"></a><span class='single-room-price'>Price from US ${{ item.price }}++</span></div>
             <div class='col-12 col-md-6 order-md-1 px-0'>
@@ -42,15 +72,23 @@
                         <dd>
                             {{ item.description }}</dd>
                     </dl>
+
                     <div class="single-room-bpo clearfix pt-3">
-                        <a class="btn btn-primary single-room-book"  href="{% url 'booking' %}">Book now</a>
+                        <a class="btn btn-primary single-room-book" href="{% if check == 'already' %}{% url 'payment' %}?room_id={{ item.id }}
+                    {% else %}#{% endif %}" >Book now</a>
                         <div class='single-room-price'>Price From: US ${{ item.price }}++</div>
                     </div>
                 </div>
             </div>
         </div>
-
         {% endfor %}
+
+        <div>
+            {% for item in room_available %}
+                <p>room is: {{ item.type }}</p>
+            {% endfor %}
+
+        </div>
         <br>
         <div class="wrapper row3">
             <section class="hoc clear">
@@ -76,4 +114,5 @@
             </section>
         </div>
     </div>
+    </section>
 {% endblock %}

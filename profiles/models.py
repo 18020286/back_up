@@ -28,3 +28,17 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class MyBooking(models.Model):
+    guest = models.ForeignKey(User, on_delete=models.CASCADE, default="")
+    room = models.CharField(max_length=200)
+    check_in = models.DateField()
+    check_out = models.DateField()
+    price = models.PositiveSmallIntegerField(default=0)
+    nights = models.PositiveSmallIntegerField(default=0)
+    booking_date = models.DateTimeField(auto_now_add=True, auto_now=False)
+    amount = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.room

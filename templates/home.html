@@ -27,7 +27,7 @@
                                     <br/>
                                     <span style="font-size:20px;"><span
                                             style="font-family:times new roman,times,serif;"><a
-                                            class="btn btn-outline-dark" href="{% url 'room' %}" rel="noopener">VIEW DETAIL</a></span></span>
+                                            class="btn btn-outline-dark" href="{% url 'about' %}" rel="noopener">VIEW DETAIL</a></span></span>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                                 Deluxe packages</a></h3>
                                             <p class='small'> Our packages and offers are designed to add value and make
                                                 your visit to...</p>
-                                            <div><a class='btn btn-outline-primary' href='#'>More info</a></div>
+                                            <div><a class='btn btn-outline-primary' href='{% url 'blog' %}'>More info</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -61,11 +61,11 @@
                                     </a>
                                         <div class='text-center p-4 p-lg-5'>
                                             <h3 class='h5 text-uppercase'><a data-toggle='modal'
-                                                                             href='/special-offers/luxury-retreat-packages'>Luxury
+                                                                             href='#'>Luxury
                                                 Retreat packages</a></h3>
                                             <p class='small'> Our packages and offers are designed to add value and make
                                                 your visit to...</p>
-                                            <div><a class='btn btn-outline-primary' href='#'>More info</a></div>
+                                            <div><a class='btn btn-outline-primary' href='{% url 'blog' %}'>More info</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -75,11 +75,11 @@
                                                                    href='#'></a>
                                         <div class='text-center p-4 p-lg-5'>
                                             <h3 class='h5 text-uppercase'><a data-toggle='modal'
-                                                                             href='/special-offers/customize-package-tours'>Customize
+                                                                             href='#'>Customize
                                                 package tours</a></h3>
                                             <p class='small'> Our packages and offers are designed to add value and make
                                                 your visit to...</p>
-                                            <div><a class='btn btn-outline-primary' href='#'>More info</a></div>
+                                            <div><a class='btn btn-outline-primary' href='{% url 'blog' %}'>More info</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -100,11 +100,11 @@
                                          style="background-image: url('/static/images/pool_party.png');"></div>
                                     <div class='col-12 col-md-6 text-center bg-light d-flex align-items-center justify-content-center p-3 p-md-4'>
                                         <div>
-                                            <h3 class='text-uppercase'><a href='/facilities/gym-pool'>Gym & Pool</a>
+                                            <h3 class='text-uppercase'><a href='#'>Gym & Pool</a>
                                             </h3>
                                             <p class='small mb-2'>Gym & Pool endorses entire ancient city view and
                                                 infinity pool concept, all exquisitely designed to offer. </p><a
-                                                class='btn btn-sm mt-2 btn-outline-primary' href='#'>View Detail</a>
+                                                class='btn btn-sm mt-2 btn-outline-primary' href='{% url 'blog' %}'>View Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -113,12 +113,12 @@
                                          style="background-image: url('/static/images/sky_bar.jpg');"></div>
                                     <div class='col-12 col-md-6 text-center bg-light d-flex align-items-center justify-content-center p-3 p-md-4'>
                                         <div>
-                                            <h3 class='text-uppercase'><a href='/services/sixteen-skybar'>Sixteen
+                                            <h3 class='text-uppercase'><a href='#'>Sixteen
                                                 Skybar</a></h3>
                                             <p class='small mb-2'>Having a dazzling and magnificent sensation while
                                                 drinking and chilling surrounded by the breathtaking scene when the sun
                                                 sets and the night comes.</p><a
-                                                class='btn btn-sm mt-2 btn-outline-primary' href='#'>View Detail</a>
+                                                class='btn btn-sm mt-2 btn-outline-primary' href='{% url 'blog' %}'>View Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,11 +129,11 @@
                                     <div class='text-white text-center bg-gradient-dark d-flex align-items-center justify-content-center h-100 p-3'>
                                         <div>
                                             <h3 class='h1 text-uppercase'><a
-                                                    href='restaurant-bar/thang-long-signature-restaurant'>Thang Long
+                                                    href='#'>Thang Long
                                                 Signature Restaurant</a></h3>
                                             <p class='mb-2'>Thang Long Signature Restaurant serves our dear diners
                                                 traditional Vietnamese Cuisine in an innovative presentation.</p><a
-                                                class='font-italic' href='#'>Read more</a>
+                                                class='font-italic btn btn-sm mt-2 btn-outline-primary' href='{% url 'blog' %}'>Read more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -147,8 +147,8 @@
                                             <h3 class='text-uppercase'><a href='#'>Meeting Room</a></h3>
                                             <p class='small mb-2'>The Meeting Room of The Oriental Jade Hotel with
                                                 advanced equipments guarantees the efficiency and is suitable to
-                                                high-level meetings</p><a class='small font-italic'
-                                                                          href='/facilities/meeting-room'>Read more</a>
+                                                high-level meetings</p><a class='small font-italic btn btn-sm mt-2 btn-outline-primary'
+                                                                          href='{% url 'blog' %}'>Read more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                                             <h3 class='text-uppercase'><a href='#'>O'Spa Lotus</a></h3>
                                             <p class='small mb-2'>The Oriental Jade Hotel prides itself on having a
                                                 gallery of the most luxurious and morden spa in Hanoi Old Quarter. </p>
-                                            <a class='small font-italic' href='#'>Read more</a>
+                                            <a class='small font-italic btn btn-sm mt-2 btn-outline-primary' href='{% url 'blog' %}'>Read more</a>
                                         </div>
                                     </div>
                                 </div>

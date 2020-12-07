@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -10,7 +11,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, FormView, UpdateView
 
 from profiles.forms import RegisterForm
-
+from profiles.models import MyBooking
 
 User = get_user_model()
 
@@ -76,4 +77,22 @@ class ProfileEditView(LoginRequiredMixin, SuccessMessageMixin,  UpdateView):
         return context
 
 
+class MyBookingView(LoginRequiredMixin, TemplateView):
+    template_name = 'my_booking.html'
 
+
+class GuestView(LoginRequiredMixin, TemplateView):
+    template_name = 'guest.html'
+    # success_url = reverse_lazy('guest')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+@login_required()
+def my_booking_view(request):
+    current_user = request.user
+    my_bookings = MyBooking.objects.all().filter(guest_id=current_user.id)
+    num_bookings = len(my_bookings)
+    data = {'my_bookings': my_bookings, 'num_bookings': num_bookings}
+    return render(request, 'my_booking.html', data)

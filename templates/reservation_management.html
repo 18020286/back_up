@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Reservation Management Page
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="">
+            <h1>Reservation Management</h1>
+        </div>
+        <table class="table" id="table">
+            <thead>
+            <tr bgcolor="#999999">
+                <th align="center" width="120">Guest</th>
+                <th align="center" width="200">Room</th>
+                <th align="center" width="200">Transaction Date</th>
+                <th align="center" width="120">Total Price</th>
+                <th align="center" width="120"></th>
+                <th align="center">Status</th>
+                <th align="center" width="90">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="">Remove</a></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="6"><h4 align="right">Total:</h4></td>
+                <td colspan="4"><h4><b>&euro;{{ total }}</b></h4></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}
